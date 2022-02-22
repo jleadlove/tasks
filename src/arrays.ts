@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { parseConfigFileTextToJson } from "typescript";
 import { inflateSync } from "zlib";
 
