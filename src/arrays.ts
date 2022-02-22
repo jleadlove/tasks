@@ -99,7 +99,13 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends.length === 0) {
+        return "0=0";
+    } else {
+        const expression = [...addends].join("+");
+        const sum = [...addends].reduce((a: number, b: number) => a + b, 0);
+        return sum + "=" + expression;
+    }
 }
 
 /**
@@ -112,5 +118,24 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    if (values.some((num: number): boolean => num < 0)) {
+        const valuesCopy = [...values];
+        const index = [...values].findIndex((num: number): boolean => num < 0);
+        const valuesCopy2 = [...values];
+        valuesCopy2.splice(index, valuesCopy.length);
+        const total = valuesCopy2.reduce(
+            (currentTotal: number, num: number) => currentTotal + num,
+            0
+        );
+        valuesCopy.splice(index + 1, 0, total);
+        return valuesCopy;
+    } else {
+        const numCopy = [...values];
+        const total = numCopy.reduce(
+            (currentTotal: number, num: number) => currentTotal + num,
+            0
+        );
+        numCopy.splice(values.length, 0, total);
+        return numCopy;
+    }
 }
