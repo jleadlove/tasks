@@ -1,4 +1,3 @@
-import { transcode } from "buffer";
 import { Question, QuestionType } from "./interfaces/question";
 
 /**
