@@ -25,7 +25,7 @@ export function GiveAttempts(): JSX.Element {
                     onChange={updateRequested}
                 />
             </Form.Group>
-            <h3>Number of attempts left: {attempts}</h3>
+            <h4>Number of attempts left: {attempts}</h4>
             <Button
                 onClick={() => requestAttempts(attempts - 1, "0")}
                 disabled={attempts === 0}
