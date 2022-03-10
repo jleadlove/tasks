@@ -33,7 +33,11 @@ export function GiveAttempts(): JSX.Element {
                 use
             </Button>
             <Button
-                onClick={() => requestAttempts(attempts, requested)}
+                onClick={() =>
+                    parseInt(requested) >= 0
+                        ? requestAttempts(attempts, requested)
+                        : requestAttempts(attempts, "0")
+                }
                 value={attempts}
             >
                 gain
