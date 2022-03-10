@@ -16,9 +16,7 @@ export function CheckAnswer({
     return (
         <div>
             <Form.Group controlId="answerChecker">
-                <Form.Label column sm={2}>
-                    Check Answer:
-                </Form.Label>
+                <Form.Label>Check Answer:</Form.Label>
                 <Form.Control value={userAnswer} onChange={checkMatching} />
             </Form.Group>
             <div>{userAnswer === expectedAnswer ? "✔️" : "❌"}</div>
